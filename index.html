@@ -1,323 +1,1678 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7 PASOS INFALIBIES PARA BIENESTAR INTEGRAL</title>
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#2B1810">
+    <title>Cannon Valley Coffee — Handcrafted Micro-Roastery</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&family=Roboto:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <!-- Inter Font & Playfair Display for headers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Theme Variables & Override styles -->
     <style>
-        :root {
-            --gsg-magenta: #ff00ff;
-            --gsg-black: #000000;
-            --gsg-white: #ffffff;
-            --gsg-gray: #1a1a1a;
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--gsg-black);
-            background-color: var(--gsg-white);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-        .oswald { font-family: 'Oswald', sans-serif; }
-        .serif { font-family: 'Playfair Display', serif; }
+      :root {
+        /* Coffee theme color system integrated over the user's config variables */
+        --color-espresso: #23120b;
+        --color-roast: #4a2c1b;
+        --color-caramel: #c68b59;
+        --color-cream: #fbf8f3;
+        --color-creme-dark: #f0e6d2;
+        --color-forest: #1e3a2f;
         
-        .magenta-glow:hover {
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
-        }
+        --font-body--family: 'Inter', sans-serif;
+        --font-heading--family: 'Playfair Display', serif;
+        
+        /* Radiuses matching client variables */
+        --style-border-radius-sm: 0.6rem;
+        --style-border-radius-md: 0.8rem;
+        --style-border-radius-lg: 1rem;
+        --style-border-radius-pills: 40px;
+        --style-border-radius-buttons-primary: 14px;
+        
+        --animation-speed: 0.3s;
+        --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-        .lead-input {
-            background: transparent;
-            border: 2px solid var(--gsg-black);
-            padding: 16px;
-            width: 100%;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.75rem;
-        }
-        .lead-input:focus {
-            border-color: var(--gsg-magenta);
-            outline: none;
-        }
+      body {
+        font-family: var(--font-body--family);
+        background-color: var(--color-cream);
+        color: var(--color-espresso);
+        overflow-x: hidden;
+      }
 
-        .btn-magenta {
-            background-color: var(--gsg-magenta);
-            color: white;
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 18px;
-            width: 100%;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .btn-magenta:hover {
-            background-color: var(--gsg-black);
-            transform: translateY(-2px);
-        }
+      h1, h2, h3, h4, .heading-font {
+        font-family: var(--font-heading--family);
+      }
 
-        #privacy-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        #privacy-modal.active { display: flex; }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--color-cream);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-caramel);
+        border-radius: 10px;
+      }
 
-        .agent-image-container::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            right: -20px;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--gsg-magenta);
-            z-index: -1;
-        }
+      /* Soft shadow classes */
+      .card-shadow {
+        box-shadow: 0 10px 30px -15px rgba(43, 24, 16, 0.12);
+      }
+      .card-shadow-hover {
+        transition: all var(--animation-speed) var(--animation-easing);
+      }
+      .card-shadow-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px -20px rgba(43, 24, 16, 0.2);
+      }
+
+      /* Custom transitions for components */
+      .drawer-transition {
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* Confetti animation styles */
+      @keyframes floatConfetti {
+        0% { transform: translateY(-10%) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+      }
+      .confetti-piece {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #c68b59;
+        top: -10px;
+        z-index: 1000;
+        animation: floatConfetti 3s linear infinite;
+      }
     </style>
-</head>
-<body>
-
-    <!-- Header -->
-    <header class="bg-black text-white py-6 px-6 md:px-12 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex flex-col">
-                <h1 class="oswald text-2xl md:text-3xl font-bold tracking-tighter leading-none uppercase">OLJ MIND+BODY PLAN</h1>
-                <span class="text-[10px] uppercase tracking-[0.4em] text-[var(--gsg-magenta)] font-bold">Bienestar Integral</span>
-            </div>
-            
-            <nav class="hidden lg:flex gap-10 items-center">
-                <a href="#about" class="oswald text-xs tracking-widest hover:text-[var(--gsg-magenta)] transition-colors">EL PLAN</a>
-                <a href="#form" class="oswald text-xs tracking-widest hover:text-[var(--gsg-magenta)] transition-colors">LOS 7 PASOS</a>
-                <a href="#form" class="oswald text-xs tracking-widest hover:text-[var(--gsg-magenta)] transition-colors">CONTACTO</a>
-                <a href="tel:0000000000" class="bg-[var(--gsg-magenta)] px-6 py-2 oswald text-xs font-bold tracking-widest hover:bg-white hover:text-black transition-all">000.000.0000</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero / Lead Capture -->
-    <section class="relative min-h-[90vh] flex items-center pt-12 pb-24 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            
-            <!-- Left: High Impact Branding -->
-            <div class="lg:col-span-7">
-                <span class="oswald text-[var(--gsg-magenta)] font-bold tracking-[0.3em] uppercase mb-4 block">Fuerza Mental x Salud Física</span>
-                <h2 class="serif text-6xl md:text-8xl mb-8 leading-[0.9] text-black">
-                    7 Pasos. <br>
-                    <span class="italic text-gray-300">Infalibles.</span>
-                </h2>
-                <div class="max-w-xl mb-12">
-                    <p class="text-xl text-gray-600 font-light leading-relaxed">
-                        Domina el arte de vivir con plenitud. Presentamos el sistema definitivo para un <span class="font-bold text-black border-b-2 border-[var(--gsg-magenta)]">Bienestar Integral</span> diseñado para mentes de alto rendimiento.
-                    </p>
-                </div>
-                
-                <!-- Stats Row -->
-                <div class="flex gap-12 border-t-2 border-black pt-8">
-                    <div>
-                        <p class="oswald text-3xl font-bold uppercase">7</p>
-                        <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Pasos Clave</p>
-                    </div>
-                    <div>
-                        <p class="oswald text-3xl font-bold uppercase">MIND</p>
-                        <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Mentalidad</p>
-                    </div>
-                    <div>
-                        <p class="oswald text-3xl font-bold uppercase">BODY</p>
-                        <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Cuerpo</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right: The Application Portal -->
-            <div id="form" class="lg:col-span-5">
-                <div class="bg-black text-white p-8 md:p-12 relative shadow-2xl">
-                    <div class="absolute -top-4 -right-4 bg-[var(--gsg-magenta)] text-white oswald p-4 text-xs font-bold tracking-widest">
-                        ACCESO EXCLUSIVO
-                    </div>
-                    <h3 class="oswald text-3xl font-bold mb-8 uppercase tracking-tight">Inicia Tu Plan</h3>
-                    <form id="leadForm" class="space-y-2">
-                        <label class="text-[10px] uppercase tracking-widest font-bold text-gray-500">Nombre Completo</label>
-                        <input type="text" name="name" class="lead-input !border-white text-white focus:!border-[var(--gsg-magenta)]" placeholder="REQUERIDO" required>
-                        
-                        <label class="text-[10px] uppercase tracking-widest font-bold text-gray-500">Teléfono</label>
-                        <input type="tel" name="phone" class="lead-input !border-white text-white focus:!border-[var(--gsg-magenta)]" placeholder="REQUERIDO" required>
-                        
-                        <div class="py-6">
-                            <label class="flex items-start gap-4 cursor-pointer group">
-                                <input type="checkbox" class="mt-1 accent-[var(--gsg-magenta)] w-5 h-5" required>
-                                <span class="text-[10px] uppercase tracking-widest leading-relaxed text-gray-400 font-bold group-hover:text-white transition-colors">
-                                    ACEPTO LOS <button type="button" onclick="togglePrivacy()" class="text-[var(--gsg-magenta)] underline">TÉRMINOS DE PRIVACIDAD</button> Y DOY PERMISO PARA SER CONTACTADO.
-                                </span>
-                            </label>
-                        </div>
-                        
-                        <button type="submit" class="btn-magenta">Solicitar Mi Plan</button>
-                    </form>
-                    <div id="formStatus" class="hidden mt-4 p-4 text-center oswald text-xs tracking-widest bg-white/10 text-[var(--gsg-magenta)] uppercase font-bold">
-                        Solicitud Enviada Con Éxito.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Visual Divider -->
-    <section class="px-6 md:px-12 pb-24">
-        <div class="max-w-7xl mx-auto relative">
-            <div class="aspect-[21/9] overflow-hidden border-2 border-black group">
-                <div class="w-full h-full bg-zinc-900 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-1000">
-                    <span class="oswald text-6xl md:text-9xl text-white/10 font-bold tracking-tighter uppercase">Equilibrio</span>
-                </div>
-                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all"></div>
-                <div class="absolute bottom-10 left-10 text-white">
-                    <p class="oswald text-4xl font-bold tracking-tighter uppercase">The Wellbeing Archive</p>
-                    <p class="text-xs uppercase tracking-[0.5em] text-[var(--gsg-magenta)] font-bold">OLJ MIND+BODY // 2026</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="bg-gray-50 py-24 px-6 md:px-12">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-            
-            <div class="relative sticky lg:top-32">
-                <div class="agent-image-container relative">
-                    <div class="w-full aspect-square bg-zinc-300 border-2 border-black grayscale hover:grayscale-0 transition-all duration-700 flex items-center justify-center">
-                         <span class="oswald text-black text-4xl opacity-20 uppercase font-bold italic">OLJ PLAN</span>
-                    </div>
-                </div>
-                <div class="absolute -bottom-8 -right-8 bg-black text-white p-10 max-w-xs hidden md:block">
-                    <p class="serif italic text-2xl mb-4 text-[var(--gsg-magenta)] leading-tight">"Cuerpo sano, mente imparable."</p>
-                    <p class="text-[11px] uppercase tracking-[0.2em] font-bold text-gray-400 mb-4 italic">"Siete pasos hacia una vida de alto impacto."</p>
-                    <div class="flex text-[var(--gsg-magenta)] text-sm mb-2">★★★★★</div>
-                    <p class="oswald text-xs tracking-widest uppercase">MIND+BODY SPECIALIST</p>
-                </div>
-            </div>
-
-            <div>
-                <h3 class="oswald text-4xl font-bold mb-8 uppercase tracking-tighter">La Filosofía <span class="text-gray-300">Detrás del Cambio.</span></h3>
-                <div class="text-base text-gray-700 space-y-6 leading-relaxed font-light">
-                    <p>
-                        <strong>OLJ MIND+BODY PLAN</strong> no es solo una rutina; es un sistema de ingeniería humana diseñado para optimizar cada aspecto de tu existencia. Creemos que el bienestar integral es el resultado de pasos precisos y hábitos infalibles.
-                    </p>
-                    <p>
-                        Nuestra metodología de <strong>7 Pasos</strong> aborda desde la reprogramación mental hasta la vitalidad física celular. Al alinear tu psicología con tu fisiología, desbloqueas niveles de energía y claridad que la mayoría considera inalcanzables.
-                    </p>
-                    <p>
-                        No buscamos resultados temporales. Buscamos una transformación de identidad. El Plan OLJ te proporciona las herramientas para convertirte en el arquitecto de tu propia salud and éxito.
-                    </p>
-                </div>
-                
-                <div class="mt-12 flex flex-col sm:flex-row gap-8">
-                    <div class="flex-1 border-l-2 border-[var(--gsg-magenta)] pl-6">
-                        <p class="oswald text-xs tracking-[0.2em] font-bold text-gray-400 mb-2 uppercase">Atención Directa</p>
-                        <a href="tel:0000000000" class="oswald text-2xl font-bold hover:text-[var(--gsg-magenta)] transition-colors">000.000.0000</a>
-                    </div>
-                    <div class="flex-1 border-l-2 border-[var(--gsg-magenta)] pl-6">
-                        <p class="oswald text-xs tracking-[0.2em] font-bold text-gray-400 mb-2 uppercase">Email Specialist</p>
-                        <a href="mailto:GabrielleBasulto@gmail.com" class="oswald text-2xl font-bold hover:text-[var(--gsg-magenta)] transition-colors uppercase">INFO.OLJ</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-black text-white pt-24 pb-12 px-6 md:px-12 border-t-8 border-[var(--gsg-magenta)]">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
-                <div class="col-span-1 md:col-span-2">
-                    <h4 class="oswald text-4xl font-bold tracking-tighter mb-6 uppercase">OLJ <br> MIND+BODY</h4>
-                    <p class="text-xs text-gray-500 uppercase tracking-widest font-bold max-w-xs leading-loose">
-                        7 Pasos Infalibles para el Bienestar Integral. <br>
-                        OLJ STRATEGY // 2026.
-                    </p>
-                    <!-- Social Links -->
-                    <div class="flex gap-6 mt-8">
-                        <a href="https://www.instagram.com/olgaluciajaramillo_iconic?igsh=N3BrbWt0N2U1Zndw" target="_blank" class="text-white hover:text-[var(--gsg-magenta)] transition-colors group">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                        <a href="https://wa.me/0000000000" target="_blank" class="text-white hover:text-[var(--gsg-magenta)] transition-colors group">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h5 class="oswald text-sm font-bold mb-6 text-[var(--gsg-magenta)] uppercase tracking-widest">Recursos</h5>
-                    <ul class="text-xs uppercase tracking-widest font-bold space-y-4">
-                        <li><a href="tel:0000000000" class="hover:text-[var(--gsg-magenta)] transition-colors">000.000.0000</a></li>
-                        <li><a href="mailto:GabrielleBasulto@gmail.com" class="hover:text-[var(--gsg-magenta)] transition-colors">Descargar Plan</a></li>
-                        <li><a href="#" class="hover:text-[var(--gsg-magenta)] transition-colors">Blog Wellness</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="oswald text-sm font-bold mb-6 text-[var(--gsg-magenta)] uppercase tracking-widest">Legal</h5>
-                    <ul class="text-xs uppercase tracking-widest font-bold space-y-4">
-                        <li><a href="#form" class="hover:text-[var(--gsg-magenta)] transition-colors">Afiliación</a></li>
-                        <li><button onclick="togglePrivacy()" class="hover:text-[var(--gsg-magenta)] transition-colors text-left">Privacidad</button></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-900 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
-                <p class="text-[9px] font-bold text-gray-600 uppercase tracking-[0.4em]">© 2026 OLJ MIND+BODY PLAN // BIENESTAR INTEGRAL</p>
-                <p class="text-[9px] font-bold text-gray-600 uppercase tracking-[0.4em]">
-                    STYLIZED BY <a href="https://ladmedia.co" target="_blank" class="text-white hover:text-[var(--gsg-magenta)] underline decoration-[var(--gsg-magenta)] decoration-2">LAD MEDIA</a>
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Privacy Modal -->
-    <div id="privacy-modal">
-        <div class="bg-white p-12 max-w-2xl w-full border-b-8 border-[var(--gsg-magenta)] relative">
-            <h3 class="oswald text-4xl font-bold mb-8 uppercase tracking-tighter">PRIVACIDAD Y CONSENTIMIENTO</h3>
-            <div class="text-xs text-black space-y-6 leading-relaxed uppercase tracking-widest font-bold">
-                <p><span class="text-[var(--gsg-magenta)]">■</span> <strong>Confidencialidad:</strong> Sus datos personales están protegidos bajo estrictos protocolos de seguridad.</p>
-                <p><span class="text-[var(--gsg-magenta)]">■</span> <strong>No Divulgación:</strong> OLJ no vende sus datos a terceros.</p>
-                <p><span class="text-[var(--gsg-magenta)]">■</span> <strong>Autorización:</strong> El envío de este formulario constituye permiso para contactarlo referente al plan de bienestar.</p>
-            </div>
-            <button onclick="togglePrivacy()" class="mt-12 bg-black text-white oswald px-12 py-5 tracking-widest w-full hover:bg-[var(--gsg-magenta)] transition-all">CERRAR</button>
-        </div>
-    </div>
 
     <script>
-        function togglePrivacy() {
-            document.getElementById('privacy-modal').classList.toggle('active');
+      // Tailwind config mapping to project branding
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              espresso: '#23120b',
+              roast: '#4a2c1b',
+              caramel: '#c68b59',
+              cream: '#fbf8f3',
+              creamDark: '#f0e6d2',
+              warmGrey: '#f5efe6',
+              forest: '#1e3a2f',
+              accentGold: '#d4af37'
+            },
+            borderRadius: {
+              'theme-sm': '0.6rem',
+              'theme-md': '0.8rem',
+              'theme-lg': '1rem',
+              'theme-btn': '14px'
+            }
+          }
         }
-        
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = this.name.value;
-            const phone = this.phone.value;
-            const statusBox = document.getElementById('formStatus');
-            
-            const subject = `Solicitud Plan OLJ: ${name}`;
-            const body = `Nueva solicitud de Bienestar Integral:\n\nNombre: ${name}\nTeléfono: ${phone}\n\nInterés: 7 Pasos Infalibles.`;
-            
-            window.location.href = `mailto:GabrielleBasulto@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            statusBox.classList.remove('hidden');
-            this.reset();
-            
-            setTimeout(() => {
-                statusBox.classList.add('hidden');
-            }, 5000);
-        });
+      }
     </script>
-</body>
+  </head>
+  <body class="antialiased selection:bg-caramel selection:text-white">
+
+    <!-- Announcement Ticker Banner -->
+    <div class="bg-espresso text-cream text-xs py-2 px-4 overflow-hidden relative border-b border-roast/20 z-50">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-caramel animate-pulse"></span>
+          <p class="font-medium tracking-wide">ROASTING SCHEDULE: Handcrafted batches roasted every Monday &amp; Wednesday!</p>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+          <span><i class="fa-solid fa-truck-fast text-caramel mr-1"></i> Free Shipping on orders over $45</span>
+          <span class="text-roast">|</span>
+          <a href="#matchmaker" class="hover:text-caramel transition duration-150 underline decoration-caramel underline-offset-4">Take the Roast Quiz</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Header Navigation -->
+    <header class="sticky top-0 bg-cream/90 backdrop-blur-md border-b border-espresso/5 z-40 transition-all duration-300 shadow-sm" id="mainHeader">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          
+          <!-- Logo & Brand Info -->
+          <div class="flex items-center space-x-3">
+            <a href="#" class="flex items-center space-x-2 group">
+              <div class="w-12 h-12 rounded-full bg-espresso flex items-center justify-center text-cream shadow-md group-hover:bg-caramel transition duration-300">
+                <i class="fa-solid fa-mug-hot text-xl"></i>
+              </div>
+              <div>
+                <span class="block text-xl font-bold tracking-tight text-espresso uppercase font-mono">Cannon Valley</span>
+                <span class="block text-xs uppercase tracking-widest text-caramel font-semibold -mt-1">Coffee Roasters</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex space-x-8 text-sm font-semibold tracking-wider uppercase text-espresso/80">
+            <a href="#shop-anchor" class="hover:text-caramel transition duration-200 py-2">Our Coffee</a>
+            <a href="#subscription" class="hover:text-caramel transition duration-200 py-2">Coffee Club Subscriptions</a>
+            <a href="#matchmaker" class="hover:text-caramel transition duration-200 py-2">Roast Matchmaker</a>
+            <a href="#calculator" class="hover:text-caramel transition duration-200 py-2">Brewing Calculator</a>
+          </nav>
+
+          <!-- Right Action Items -->
+          <div class="flex items-center space-x-4">
+            <!-- Search Widget Trigger -->
+            <div class="relative hidden sm:block">
+              <input type="text" id="searchInput" oninput="liveSearch()" placeholder="Search blends..." class="bg-espresso/5 border border-espresso/10 rounded-full px-4 py-2 text-xs focus:outline-none focus:border-caramel w-44 transition-all duration-300 focus:w-56 text-espresso">
+              <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-espresso/40 text-xs"></i>
+            </div>
+
+            <!-- Cart Toggle Button -->
+            <button onclick="toggleCartDrawer(true)" class="relative p-3 rounded-full hover:bg-espresso/5 text-espresso transition duration-200 focus:outline-none" aria-label="Open Cart">
+              <i class="fa-solid fa-bag-shopping text-xl"></i>
+              <span id="cartCountBadge" class="absolute top-1 right-1 bg-caramel text-white text-2xs font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-cream transform scale-100 transition-all duration-300">0</span>
+            </button>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-espresso focus:outline-none" aria-label="Toggle Menu">
+              <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div class="hidden md:hidden bg-cream border-t border-espresso/5 px-4 pt-2 pb-6 space-y-3" id="mobileMenu">
+        <a href="#shop-anchor" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg hover:bg-espresso/5 font-semibold text-espresso">Our Coffee</a>
+        <a href="#subscription" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg hover:bg-espresso/5 font-semibold text-espresso">Coffee Club Subscriptions</a>
+        <a href="#matchmaker" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg hover:bg-espresso/5 font-semibold text-espresso">Roast Matchmaker</a>
+        <a href="#calculator" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg hover:bg-espresso/5 font-semibold text-espresso">Brewing Calculator</a>
+        <div class="pt-2 border-t border-espresso/10">
+          <input type="text" oninput="liveSearch()" placeholder="Search blends..." class="w-full bg-espresso/5 border border-espresso/10 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-caramel">
+        </div>
+      </div>
+    </header>
+
+    <!-- Toast Notification Banner -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-forest text-cream px-6 py-4 rounded-xl shadow-xl flex items-center space-x-3 border border-emerald-500/20 max-w-sm">
+      <div class="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <div>
+        <h4 class="font-bold text-sm" id="toastTitle">Added to Cart!</h4>
+        <p class="text-xs text-cream/70" id="toastMessage">Your roast selection is ready for checkout.</p>
+      </div>
+    </div>
+
+    <!-- Premium Hero Carousel Section -->
+    <section class="relative bg-espresso text-cream overflow-hidden">
+      <!-- Decorative Organic Splatters/Blobs -->
+      <div class="absolute inset-0 opacity-15 pointer-events-none mix-blend-screen bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1974&auto=format&fit=crop');"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Column 1: Copywriting -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center space-x-2 bg-caramel/20 border border-caramel/30 rounded-full px-4 py-1.5">
+              <i class="fa-solid fa-award text-caramel text-xs"></i>
+              <span class="text-xs font-bold uppercase tracking-widest text-caramel">Award-winning micro-roastery</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-cream">
+              Exceptional flavor, <br>
+              <span class="text-caramel italic">roasted freshly</span> for your mornings.
+            </h1>
+            <p class="text-cream/80 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+              At Cannon Valley Coffee, we micro-roast hand-selected organic beans from premium single-origins and crafted custom blends. Small batches, big flavor.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+              <a href="#shop-anchor" class="w-full sm:w-auto px-8 py-4 bg-caramel hover:bg-caramel/90 text-espresso font-bold rounded-theme-btn shadow-lg transition duration-300 text-center uppercase tracking-wider text-sm">
+                Shop Fresh Roasts
+              </a>
+              <a href="#matchmaker" class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-cream/20 hover:border-cream/50 text-cream font-bold rounded-theme-btn transition duration-300 text-center uppercase tracking-wider text-sm flex items-center justify-center space-x-2">
+                <span>Find Your Roast</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+
+            <!-- Fast Stats Bar -->
+            <div class="grid grid-cols-3 gap-4 pt-10 border-t border-cream/10 max-w-md mx-auto lg:mx-0 text-left">
+              <div>
+                <span class="block text-2xl sm:text-3xl font-bold text-caramel">100%</span>
+                <span class="block text-2xs uppercase tracking-widest text-cream/60">Arabica Beans</span>
+              </div>
+              <div>
+                <span class="block text-2xl sm:text-3xl font-bold text-caramel">48h</span>
+                <span class="block text-2xs uppercase tracking-widest text-cream/60">Roast to Ship</span>
+              </div>
+              <div>
+                <span class="block text-2xl sm:text-3xl font-bold text-caramel">4.9★</span>
+                <span class="block text-2xs uppercase tracking-widest text-cream/60">12k+ Reviews</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Coffee Bag Splendor -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-72 sm:w-80 lg:w-96">
+              <!-- Glow backplane -->
+              <div class="absolute -inset-4 bg-caramel/30 rounded-full blur-3xl opacity-60"></div>
+              
+              <!-- Aesthetic Product Render Stack -->
+              <div class="relative bg-gradient-to-b from-roast to-espresso rounded-3xl p-6 sm:p-8 shadow-2xl border border-cream/10">
+                <div class="absolute top-4 right-4 bg-caramel text-espresso text-2xs font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">
+                  Best Seller
+                </div>
+                
+                <!-- SVG Coffee Icon Logo Splash -->
+                <div class="flex justify-center mb-6">
+                  <div class="w-24 h-24 rounded-full bg-cream/10 flex items-center justify-center border-2 border-caramel/40">
+                    <i class="fa-solid fa-seedling text-4xl text-caramel"></i>
+                  </div>
+                </div>
+
+                <div class="text-center space-y-3">
+                  <h3 class="text-2xl font-bold text-cream">Cannon Valley House</h3>
+                  <div class="flex justify-center space-x-1 text-accentGold text-xs">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <p class="text-xs tracking-wider uppercase text-caramel font-semibold">Medium Roast • Notes of Chocolate &amp; Pecan</p>
+                  
+                  <div class="pt-4 border-t border-cream/10 flex items-center justify-between text-cream">
+                    <div class="text-left">
+                      <span class="text-xs text-cream/60 block">Fresh 12oz Bag</span>
+                      <span class="text-lg font-bold text-caramel">$14.95</span>
+                    </div>
+                    <button onclick="triggerAddToCart('p1')" class="bg-caramel hover:bg-caramel/90 text-espresso font-bold px-4 py-2.5 rounded-xl transition duration-300 text-xs uppercase tracking-wider flex items-center space-x-1">
+                      <i class="fa-solid fa-cart-plus"></i>
+                      <span>Add to Cart</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Markers -->
+    <div class="bg-warmGrey py-10 border-b border-espresso/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="flex items-center space-x-3 justify-center md:justify-start">
+            <span class="text-3xl text-caramel"><i class="fa-solid fa-earth-americas"></i></span>
+            <div>
+              <span class="block text-sm font-bold text-espresso">Directly Sourced</span>
+              <span class="block text-2xs text-espresso/60">Fairly paid micro-lots</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3 justify-center md:justify-start">
+            <span class="text-3xl text-caramel"><i class="fa-solid fa-leaf"></i></span>
+            <div>
+              <span class="block text-sm font-bold text-espresso">100% Certified Organic</span>
+              <span class="block text-2xs text-espresso/60">No synthetic pesticides</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3 justify-center md:justify-start">
+            <span class="text-3xl text-caramel"><i class="fa-solid fa-fire-flame-curved"></i></span>
+            <div>
+              <span class="block text-sm font-bold text-espresso">Craft Micro-Roasted</span>
+              <span class="block text-2xs text-espresso/60">Precisely profile-monitored</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3 justify-center md:justify-start">
+            <span class="text-3xl text-caramel"><i class="fa-solid fa-paper-plane"></i></span>
+            <div>
+              <span class="block text-sm font-bold text-espresso">Roast-to-Order</span>
+              <span class="block text-2xs text-espresso/60">Shipped fresh immediately</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Coffee Matchmaker Quiz Section -->
+    <section id="matchmaker" class="py-20 bg-cream">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-caramel block mb-2">Quiz Configurator</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-espresso">Find Your Perfect Roast</h2>
+          <p class="text-espresso/70 mt-3">Answer 3 simple questions to discover the exact roast that matches your tastebuds and favorite coffee gear.</p>
+        </div>
+
+        <!-- Quiz Container -->
+        <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-espresso/5 relative overflow-hidden" id="quizBox">
+          
+          <!-- Step 1 View -->
+          <div id="quizStep1" class="space-y-6">
+            <div class="flex justify-between items-center pb-4 border-b border-espresso/5">
+              <span class="text-xs font-bold text-caramel uppercase tracking-widest">Question 1 of 3</span>
+              <span class="text-xs text-espresso/40">Brewing Method</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-espresso">How do you prepare your coffee at home?</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <button onclick="selectQuizAnswer(1, 'drip')" class="flex items-center p-4 border-2 border-espresso/10 rounded-2xl hover:border-caramel hover:bg-caramel/5 transition duration-200 text-left group">
+                <span class="w-10 h-10 rounded-full bg-espresso/5 flex items-center justify-center text-espresso mr-4 group-hover:bg-caramel/10 group-hover:text-caramel transition"><i class="fa-solid fa-filter"></i></span>
+                <div>
+                  <span class="block font-bold text-espresso">Drip or Pour Over</span>
+                  <span class="block text-xs text-espresso/60">Clean, balanced, focused flavors</span>
+                </div>
+              </button>
+              <button onclick="selectQuizAnswer(1, 'espresso')" class="flex items-center p-4 border-2 border-espresso/10 rounded-2xl hover:border-caramel hover:bg-caramel/5 transition duration-200 text-left group">
+                <span class="w-10 h-10 rounded-full bg-espresso/5 flex items-center justify-center text-espresso mr-4 group-hover:bg-caramel/10 group-hover:text-caramel transition"><i class="fa-solid fa-bolt"></i></span>
+                <div>
+                  <span class="block font-bold text-espresso">Espresso / Moka Pot</span>
+                  <span class="block text-xs text-espresso/60">Rich, intense, concentrated syrup</span>
+                </div>
+              </button>
+              <button onclick="selectQuizAnswer(1, 'frenchpress')" class="flex items-center p-4 border-2 border-espresso/10 rounded-2xl hover:border-caramel hover:bg-caramel/5 transition duration-200 text-left group">
+                <span class="w-10 h-10 rounded-full bg-espresso/5 flex items-center justify-center text-espresso mr-4 group-hover:bg-caramel/10 group-hover:text-caramel transition"><i class="fa-solid fa-couch"></i></span>
+                <div>
+                  <span class="block font-bold text-espresso">French Press / Cold Brew</span>
+                  <span class="block text-xs text-espresso/60">Full-bodied, oily, strong extraction</span>
+                </div>
+              </button>
+              <button onclick="selectQuizAnswer(1, 'pod')" class="flex items-center p-4 border-2 border-espresso/10 rounded-2xl hover:border-caramel hover:bg-caramel/5 transition duration-200 text-left group">
+                <span class="w-10 h-10 rounded-full bg-espresso/5 flex items-center justify-center text-espresso mr-4 group-hover:bg-caramel/10 group-hover:text-caramel transition"><i class="fa-solid fa-cubes"></i></span>
+                <div>
+                  <span class="block font-bold text-espresso">Single-Serve Pod / Keurig</span>
+                  <span class="block text-xs text-espresso/60">Speed, ultimate convenience</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2 View (Hidden initially) -->
+          <div id="quizStep2" class="space-y-6 hidden">
+            <div class="flex justify-between items-center pb-4 border-b border-espresso/5">
+              <span class="text-xs font-bold text-caramel uppercase tracking-widest">Question 2 of 3</span>
+              <span class="text-xs text-espresso/40">Flavor Profile</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-espresso">What flavor notes excites your palate the most?</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <button onclick="selectQuizAnswer(2, 'sweet')" class="flex items-center p-4 border-2 border-espresso/10 rounded-2xl hover:border-caramel hover:bg-caramel/5 transition duration-200 text-left group">
+                <span class="w-10 h-10 rounded-full bg-espresso/5 flex items-center justify-center text-espresso mr-4 group-hover:bg-caramel/10 group-hover:text-caramel transition"><i class="fa-solid fa-candy-cane"></i></span>
+                <div>
+                  <span class="block font-bold text-espresso">Chocolate, Caramel, Nuts</span>
+                  <span class="block text-xs text-espresso/60">Classic, rich, sweet, low-acidity</span>
+                </div>
+              </button>
+              <button onclick="selectQuizAnswer(2, 'fruit')" class="flex items-center p-4 border-2 border-espresso/10 rounded-2xl hover:border-caramel hover:bg-caramel/5 transition duration-200 text-left group">
+                <span class="w-10 h-10 rounded-full bg-espresso/5 flex items-center justify-center text-espresso mr-4 group-hover:bg-caramel/10 group-hover:text-caramel transition"><i class="fa-solid fa-lemon"></i></span>
+                <div>
+                  <span class="block font-bold text-espresso">Berries, Citrus, Floral</span>
+                  <span class="block text-xs text-espresso/60">Bright, vibrant, complex, fruity</span>
+                </div>
+              </button>
+              <button onclick="selectQuizAnswer(2, 'robust')" class="flex items-center p-4 border-2 border-espresso/10 rounded-2xl hover:border-caramel hover:bg-caramel/5 transition duration-200 text-left group">
+                <span class="w-10 h-10 rounded-full bg-espresso/5 flex items-center justify-center text-espresso mr-4 group-hover:bg-caramel/10 group-hover:text-caramel transition"><i class="fa-solid fa-tree"></i></span>
+                <div>
+                  <span class="block font-bold text-espresso">Dark Roast, Smoky, Spice</span>
+                  <span class="block text-xs text-espresso/60">Deep, heavy body, bold character</span>
+                </div>
+              </button>
+              <button onclick="selectQuizAnswer(2, 'subtle')" class="flex items-center p-4 border-2 border-espresso/10 rounded-2xl hover:border-caramel hover:bg-caramel/5 transition duration-200 text-left group">
+                <span class="w-10 h-10 rounded-full bg-espresso/5 flex items-center justify-center text-espresso mr-4 group-hover:bg-caramel/10 group-hover:text-caramel transition"><i class="fa-solid fa-cookie"></i></span>
+                <div>
+                  <span class="block font-bold text-espresso">Mellow &amp; Smooth</span>
+                  <span class="block text-xs text-espresso/60">Very subtle, easy-drinking cup</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3 View (Hidden initially) -->
+          <div id="quizStep3" class="space-y-6 hidden">
+            <div class="flex justify-between items-center pb-4 border-b border-espresso/5">
+              <span class="text-xs font-bold text-caramel uppercase tracking-widest">Question 3 of 3</span>
+              <span class="text-xs text-espresso/40">Additive Style</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-espresso">How do you usually enjoy your coffee?</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <button onclick="selectQuizAnswer(3, 'black')" class="flex items-center p-4 border-2 border-espresso/10 rounded-2xl hover:border-caramel hover:bg-caramel/5 transition duration-200 text-left group">
+                <span class="w-10 h-10 rounded-full bg-espresso/5 flex items-center justify-center text-espresso mr-4 group-hover:bg-caramel/10 group-hover:text-caramel transition"><i class="fa-solid fa-mug-hot"></i></span>
+                <div>
+                  <span class="block font-bold text-espresso">Straight Black</span>
+                  <span class="block text-xs text-espresso/60">I appreciate all micro-details &amp; terroir</span>
+                </div>
+              </button>
+              <button onclick="selectQuizAnswer(3, 'milk')" class="flex items-center p-4 border-2 border-espresso/10 rounded-2xl hover:border-caramel hover:bg-caramel/5 transition duration-200 text-left group">
+                <span class="w-10 h-10 rounded-full bg-espresso/5 flex items-center justify-center text-espresso mr-4 group-hover:bg-caramel/10 group-hover:text-caramel transition"><i class="fa-solid fa-droplet"></i></span>
+                <div>
+                  <span class="block font-bold text-espresso">With Milk / Creamer</span>
+                  <span class="block text-xs text-espresso/60">Need a body bold enough to cut through milk</span>
+                </div>
+              </button>
+              <button onclick="selectQuizAnswer(3, 'decaf')" class="flex items-center p-4 border-2 border-espresso/10 rounded-2xl hover:border-caramel hover:bg-caramel/5 transition duration-200 text-left group">
+                <span class="w-10 h-10 rounded-full bg-espresso/5 flex items-center justify-center text-espresso mr-4 group-hover:bg-caramel/10 group-hover:text-caramel transition"><i class="fa-solid fa-moon"></i></span>
+                <div>
+                  <span class="block font-bold text-espresso">I need Decaf option</span>
+                  <span class="block text-xs text-espresso/60">All of the gourmet taste, none of the caffeine</span>
+                </div>
+              </button>
+              <button onclick="selectQuizAnswer(3, 'any')" class="flex items-center p-4 border-2 border-espresso/10 rounded-2xl hover:border-caramel hover:bg-caramel/5 transition duration-200 text-left group">
+                <span class="w-10 h-10 rounded-full bg-espresso/5 flex items-center justify-center text-espresso mr-4 group-hover:bg-caramel/10 group-hover:text-caramel transition"><i class="fa-solid fa-asterisk"></i></span>
+                <div>
+                  <span class="block font-bold text-espresso">A little bit of everything!</span>
+                  <span class="block text-xs text-espresso/60">I love experimenting with brewing methods</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Loading Result View (Hidden initially) -->
+          <div id="quizStepLoading" class="hidden text-center py-12 space-y-4">
+            <div class="inline-block w-16 h-16 border-4 border-caramel border-t-transparent rounded-full animate-spin"></div>
+            <p class="text-espresso font-semibold">Analyzing flavor nodes and extracting recommendations...</p>
+          </div>
+
+          <!-- Results View (Hidden initially) -->
+          <div id="quizResult" class="hidden space-y-6">
+            <div class="text-center">
+              <span class="text-xs font-bold text-caramel uppercase tracking-widest block mb-1">Your Perfect Match Found!</span>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-espresso" id="recommendedTitle">Cannon Valley Dark Blend</h3>
+              <p class="text-espresso/70 mt-2 max-w-lg mx-auto" id="recommendedDesc">Based on your love for French Press and chocolatey flavors, this deeply profile-roasted micro-lot holds beautiful oiliness and robust finish.</p>
+            </div>
+
+            <!-- Recommended Product Preview Card -->
+            <div class="bg-warmGrey rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-6 border border-espresso/5">
+              <div class="flex items-center space-x-4">
+                <div class="w-16 h-16 rounded-2xl bg-espresso flex items-center justify-center text-caramel text-3xl">
+                  <i class="fa-solid fa-seedling"></i>
+                </div>
+                <div>
+                  <span class="text-xs text-caramel font-bold tracking-widest uppercase block">Fresh Specialty Coffee</span>
+                  <h4 class="font-bold text-espresso text-lg" id="recommendedCardTitle">Midnight Dark Roast</h4>
+                  <span class="text-sm font-semibold text-espresso/60" id="recommendedPrice">$14.95</span>
+                </div>
+              </div>
+              
+              <div class="flex space-x-2 w-full sm:w-auto">
+                <button onclick="resetQuiz()" class="px-5 py-3 border border-espresso/15 text-espresso font-bold rounded-xl hover:bg-espresso/5 transition duration-200 text-sm">
+                  Retake Quiz
+                </button>
+                <button id="recommendedAddBtn" onclick="addRecommendedToCart()" class="flex-1 sm:flex-none px-6 py-3 bg-caramel hover:bg-caramel/90 text-espresso font-bold rounded-xl transition duration-300 text-sm flex items-center justify-center space-x-2">
+                  <i class="fa-solid fa-cart-plus"></i>
+                  <span>Add Match To Cart</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Store Catalog Section -->
+    <section id="shop-anchor" class="py-20 bg-warmGrey">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Grid Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-caramel block mb-2">Gourmet Selection</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-espresso">Explore Our Fresh Roasts</h2>
+            <p class="text-espresso/70 mt-2 max-w-xl">Each batch is delicately profile-roasted, packaged in degassing valved foil-sealed bags, and shipped hot from the roastery.</p>
+          </div>
+          
+          <!-- Category Filter Toggles -->
+          <div class="flex flex-wrap gap-2 text-xs font-bold tracking-widest uppercase" id="catalogFilters">
+            <button onclick="filterCatalog('all')" class="px-5 py-2.5 rounded-full bg-espresso text-cream transition" id="filter-all">All Roasts</button>
+            <button onclick="filterCatalog('blend')" class="px-5 py-2.5 rounded-full border border-espresso/15 text-espresso/80 hover:bg-espresso/5 transition" id="filter-blend">Signature Blends</button>
+            <button onclick="filterCatalog('origin')" class="px-5 py-2.5 rounded-full border border-espresso/15 text-espresso/80 hover:bg-espresso/5 transition" id="filter-origin">Single Origin</button>
+            <button onclick="filterCatalog('decaf')" class="px-5 py-2.5 rounded-full border border-espresso/15 text-espresso/80 hover:bg-espresso/5 transition" id="filter-decaf">Decaf</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Product Catalog Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="productGrid">
+          
+          <!-- Product 1: House Blend -->
+          <div class="bg-white rounded-3xl p-6 border border-espresso/5 card-shadow-hover flex flex-col justify-between" data-category="blend">
+            <div>
+              <div class="relative rounded-2xl bg-espresso/5 h-64 flex items-center justify-center mb-6 overflow-hidden">
+                <span class="absolute top-3 left-3 bg-caramel text-espresso font-extrabold text-3xs uppercase px-2.5 py-1 rounded-full tracking-widest">Aromatic</span>
+                <i class="fa-solid fa-mug-saucer text-6xl text-caramel/40"></i>
+              </div>
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-bold text-xl text-espresso" id="p1-title">Cannon Valley House</h3>
+                  <span class="text-xs font-semibold text-caramel tracking-wider uppercase font-sans">Medium Roast</span>
+                </div>
+                <div class="text-right">
+                  <span class="block text-lg font-black text-espresso" id="p1-base-price">$14.95</span>
+                </div>
+              </div>
+              <p class="text-sm text-espresso/70 mt-3">Our classic signature blend with hints of sweet brown sugar, toasted pecans, and milk chocolate finish.</p>
+              
+              <!-- Interactive Configurator Variants -->
+              <div class="space-y-4 pt-4 mt-4 border-t border-espresso/5">
+                <!-- Size Picker -->
+                <div>
+                  <span class="block text-2xs uppercase tracking-wider text-espresso/60 mb-2 font-bold">Bag Size:</span>
+                  <div class="flex gap-2">
+                    <button onclick="updateProductConfig('p1', 'size', '12oz', 14.95)" class="flex-1 py-1.5 border-2 border-caramel bg-caramel/10 text-espresso text-xs font-bold rounded-lg transition" id="p1-size-12oz">12 oz</button>
+                    <button onclick="updateProductConfig('p1', 'size', '2lb', 32.95)" class="flex-1 py-1.5 border border-espresso/15 text-espresso/70 text-xs font-semibold rounded-lg hover:border-caramel transition" id="p1-size-2lb">2 lb</button>
+                    <button onclick="updateProductConfig('p1', 'size', '5lb', 69.95)" class="flex-1 py-1.5 border border-espresso/15 text-espresso/70 text-xs font-semibold rounded-lg hover:border-caramel transition" id="p1-size-5lb">5 lb</button>
+                  </div>
+                </div>
+                <!-- Grind Picker -->
+                <div>
+                  <span class="block text-2xs uppercase tracking-wider text-espresso/60 mb-2 font-bold">Grind Option:</span>
+                  <select id="p1-grind-select" class="w-full bg-cream border border-espresso/15 rounded-lg px-3 py-2 text-xs text-espresso focus:border-caramel focus:outline-none">
+                    <option value="Whole Bean">Whole Bean (Highly Recommended)</option>
+                    <option value="Drip">Standard Drip Grind</option>
+                    <option value="French Press">Coarse French Press</option>
+                    <option value="Espresso">Fine Espresso Grind</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="pt-6 mt-6 border-t border-espresso/5">
+              <button onclick="triggerAddToCart('p1')" class="w-full py-3.5 bg-espresso hover:bg-caramel hover:text-espresso text-cream font-bold rounded-xl transition duration-300 text-xs uppercase tracking-wider flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-basket-shopping text-sm"></i>
+                <span>Add Fresh Bag</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 2: Ethiopian Yirgacheffe -->
+          <div class="bg-white rounded-3xl p-6 border border-espresso/5 card-shadow-hover flex flex-col justify-between" data-category="origin">
+            <div>
+              <div class="relative rounded-2xl bg-espresso/5 h-64 flex items-center justify-center mb-6 overflow-hidden">
+                <span class="absolute top-3 left-3 bg-forest text-cream font-extrabold text-3xs uppercase px-2.5 py-1 rounded-full tracking-widest">Organic Single Origin</span>
+                <i class="fa-solid fa-seedling text-6xl text-caramel/40"></i>
+              </div>
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-bold text-xl text-espresso" id="p2-title">Ethiopian Yirgacheffe</h3>
+                  <span class="text-xs font-semibold text-caramel tracking-wider uppercase font-sans">Light Roast</span>
+                </div>
+                <div class="text-right">
+                  <span class="block text-lg font-black text-espresso" id="p2-base-price">$16.95</span>
+                </div>
+              </div>
+              <p class="text-sm text-espresso/70 mt-3">Bright, complex, and intensely aromatic. Offers delicate notes of jasmine, lemon zest, and wild honey juice.</p>
+              
+              <!-- Interactive Configurator Variants -->
+              <div class="space-y-4 pt-4 mt-4 border-t border-espresso/5">
+                <!-- Size Picker -->
+                <div>
+                  <span class="block text-2xs uppercase tracking-wider text-espresso/60 mb-2 font-bold">Bag Size:</span>
+                  <div class="flex gap-2">
+                    <button onclick="updateProductConfig('p2', 'size', '12oz', 16.95)" class="flex-1 py-1.5 border-2 border-caramel bg-caramel/10 text-espresso text-xs font-bold rounded-lg transition" id="p2-size-12oz">12 oz</button>
+                    <button onclick="updateProductConfig('p2', 'size', '2lb', 36.95)" class="flex-1 py-1.5 border border-espresso/15 text-espresso/70 text-xs font-semibold rounded-lg hover:border-caramel transition" id="p2-size-2lb">2 lb</button>
+                    <button onclick="updateProductConfig('p2', 'size', '5lb', 76.95)" class="flex-1 py-1.5 border border-espresso/15 text-espresso/70 text-xs font-semibold rounded-lg hover:border-caramel transition" id="p2-size-5lb">5 lb</button>
+                  </div>
+                </div>
+                <!-- Grind Picker -->
+                <div>
+                  <span class="block text-2xs uppercase tracking-wider text-espresso/60 mb-2 font-bold">Grind Option:</span>
+                  <select id="p2-grind-select" class="w-full bg-cream border border-espresso/15 rounded-lg px-3 py-2 text-xs text-espresso focus:border-caramel focus:outline-none">
+                    <option value="Whole Bean">Whole Bean (Highly Recommended)</option>
+                    <option value="Drip">Standard Drip Grind</option>
+                    <option value="French Press">Coarse French Press</option>
+                    <option value="Espresso">Fine Espresso Grind</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="pt-6 mt-6 border-t border-espresso/5">
+              <button onclick="triggerAddToCart('p2')" class="w-full py-3.5 bg-espresso hover:bg-caramel hover:text-espresso text-cream font-bold rounded-xl transition duration-300 text-xs uppercase tracking-wider flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-basket-shopping text-sm"></i>
+                <span>Add Fresh Bag</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 3: Midnight Roast -->
+          <div class="bg-white rounded-3xl p-6 border border-espresso/5 card-shadow-hover flex flex-col justify-between" data-category="blend">
+            <div>
+              <div class="relative rounded-2xl bg-espresso/5 h-64 flex items-center justify-center mb-6 overflow-hidden">
+                <span class="absolute top-3 left-3 bg-espresso text-cream font-extrabold text-3xs uppercase px-2.5 py-1 rounded-full tracking-widest">Italian Dark</span>
+                <i class="fa-solid fa-cloud-moon text-6xl text-caramel/40"></i>
+              </div>
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-bold text-xl text-espresso" id="p3-title">Midnight Velvet</h3>
+                  <span class="text-xs font-semibold text-caramel tracking-wider uppercase font-sans">Dark Roast</span>
+                </div>
+                <div class="text-right">
+                  <span class="block text-lg font-black text-espresso" id="p3-base-price">$14.95</span>
+                </div>
+              </div>
+              <p class="text-sm text-espresso/70 mt-3">Smoky, heavy-bodied, and beautifully rich. Yields prominent notes of dark baker's cocoa, molasses, and bold cedar spice.</p>
+              
+              <!-- Interactive Configurator Variants -->
+              <div class="space-y-4 pt-4 mt-4 border-t border-espresso/5">
+                <!-- Size Picker -->
+                <div>
+                  <span class="block text-2xs uppercase tracking-wider text-espresso/60 mb-2 font-bold">Bag Size:</span>
+                  <div class="flex gap-2">
+                    <button onclick="updateProductConfig('p3', 'size', '12oz', 14.95)" class="flex-1 py-1.5 border-2 border-caramel bg-caramel/10 text-espresso text-xs font-bold rounded-lg transition" id="p3-size-12oz">12 oz</button>
+                    <button onclick="updateProductConfig('p3', 'size', '2lb', 32.95)" class="flex-1 py-1.5 border border-espresso/15 text-espresso/70 text-xs font-semibold rounded-lg hover:border-caramel transition" id="p3-size-2lb">2 lb</button>
+                    <button onclick="updateProductConfig('p3', 'size', '5lb', 69.95)" class="flex-1 py-1.5 border border-espresso/15 text-espresso/70 text-xs font-semibold rounded-lg hover:border-caramel transition" id="p3-size-5lb">5 lb</button>
+                  </div>
+                </div>
+                <!-- Grind Picker -->
+                <div>
+                  <span class="block text-2xs uppercase tracking-wider text-espresso/60 mb-2 font-bold">Grind Option:</span>
+                  <select id="p3-grind-select" class="w-full bg-cream border border-espresso/15 rounded-lg px-3 py-2 text-xs text-espresso focus:border-caramel focus:outline-none">
+                    <option value="Whole Bean">Whole Bean (Highly Recommended)</option>
+                    <option value="Drip">Standard Drip Grind</option>
+                    <option value="French Press">Coarse French Press</option>
+                    <option value="Espresso">Fine Espresso Grind</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="pt-6 mt-6 border-t border-espresso/5">
+              <button onclick="triggerAddToCart('p3')" class="w-full py-3.5 bg-espresso hover:bg-caramel hover:text-espresso text-cream font-bold rounded-xl transition duration-300 text-xs uppercase tracking-wider flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-basket-shopping text-sm"></i>
+                <span>Add Fresh Bag</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 4: Decaf Swiss Water -->
+          <div class="bg-white rounded-3xl p-6 border border-espresso/5 card-shadow-hover flex flex-col justify-between" data-category="decaf">
+            <div>
+              <div class="relative rounded-2xl bg-espresso/5 h-64 flex items-center justify-center mb-6 overflow-hidden">
+                <span class="absolute top-3 left-3 bg-caramel text-espresso font-extrabold text-3xs uppercase px-2.5 py-1 rounded-full tracking-widest">99.9% Caffeine-Free</span>
+                <i class="fa-solid fa-moon text-6xl text-caramel/40"></i>
+              </div>
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-bold text-xl text-espresso" id="p4-title">Decaf Sun Up</h3>
+                  <span class="text-xs font-semibold text-caramel tracking-wider uppercase font-sans">Medium Roast</span>
+                </div>
+                <div class="text-right">
+                  <span class="block text-lg font-black text-espresso" id="p4-base-price">$15.95</span>
+                </div>
+              </div>
+              <p class="text-sm text-espresso/70 mt-3">Processed using natural Swiss Water methods. Captures beautiful notes of brown sugar syrup, sweet dates, and creamy vanilla.</p>
+              
+              <!-- Interactive Configurator Variants -->
+              <div class="space-y-4 pt-4 mt-4 border-t border-espresso/5">
+                <!-- Size Picker -->
+                <div>
+                  <span class="block text-2xs uppercase tracking-wider text-espresso/60 mb-2 font-bold">Bag Size:</span>
+                  <div class="flex gap-2">
+                    <button onclick="updateProductConfig('p4', 'size', '12oz', 15.95)" class="flex-1 py-1.5 border-2 border-caramel bg-caramel/10 text-espresso text-xs font-bold rounded-lg transition" id="p4-size-12oz">12 oz</button>
+                    <button onclick="updateProductConfig('p4', 'size', '2lb', 34.95)" class="flex-1 py-1.5 border border-espresso/15 text-espresso/70 text-xs font-semibold rounded-lg hover:border-caramel transition" id="p4-size-2lb">2 lb</button>
+                    <button onclick="updateProductConfig('p4', 'size', '5lb', 72.95)" class="flex-1 py-1.5 border border-espresso/15 text-espresso/70 text-xs font-semibold rounded-lg hover:border-caramel transition" id="p4-size-5lb">5 lb</button>
+                  </div>
+                </div>
+                <!-- Grind Picker -->
+                <div>
+                  <span class="block text-2xs uppercase tracking-wider text-espresso/60 mb-2 font-bold">Grind Option:</span>
+                  <select id="p4-grind-select" class="w-full bg-cream border border-espresso/15 rounded-lg px-3 py-2 text-xs text-espresso focus:border-caramel focus:outline-none">
+                    <option value="Whole Bean">Whole Bean (Highly Recommended)</option>
+                    <option value="Drip">Standard Drip Grind</option>
+                    <option value="French Press">Coarse French Press</option>
+                    <option value="Espresso">Fine Espresso Grind</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="pt-6 mt-6 border-t border-espresso/5">
+              <button onclick="triggerAddToCart('p4')" class="w-full py-3.5 bg-espresso hover:bg-caramel hover:text-espresso text-cream font-bold rounded-xl transition duration-300 text-xs uppercase tracking-wider flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-basket-shopping text-sm"></i>
+                <span>Add Fresh Bag</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Brewing Ratio Calculator -->
+    <section id="calculator" class="py-20 bg-espresso text-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Text column -->
+          <div class="lg:col-span-5 space-y-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-caramel block">The Science of Taste</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold">Interactive Brewing Ratio Calculator</h2>
+            <p class="text-cream/75">
+              Achieving the ultimate golden-ratio extraction is straightforward. Use our dynamic calculator to get precise water measurements, grind guide, and water temperature for your favorite preparation method.
+            </p>
+            
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <span class="text-caramel text-lg mt-1"><i class="fa-solid fa-scale-balanced"></i></span>
+                <div>
+                  <h4 class="font-bold text-cream">Ideal Coffee-to-Water Ratio</h4>
+                  <p class="text-xs text-cream/60">We generally recommend a 1:16 ratio for drip and 1:15 for French press.</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <span class="text-caramel text-lg mt-1"><i class="fa-solid fa-temperature-half"></i></span>
+                <div>
+                  <h4 class="font-bold text-cream">Perfect Thermal Range</h4>
+                  <p class="text-xs text-cream/60">Target water temperature between 195°F and 205°F for maximum sweet extraction.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Calculator Card -->
+          <div class="lg:col-span-7 bg-white/10 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-white/10 text-cream relative">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <!-- Left Controls -->
+              <div class="space-y-6">
+                <!-- Method Selection -->
+                <div>
+                  <label class="block text-2xs uppercase tracking-widest text-cream/60 mb-2 font-bold">Brew Method</label>
+                  <select id="brewMethod" onchange="calculateBrewRatio()" class="w-full bg-espresso border border-cream/20 rounded-xl px-4 py-3 text-sm text-cream focus:border-caramel focus:outline-none">
+                    <option value="drip">Pour Over / Drip (1:16)</option>
+                    <option value="french">French Press (1:15)</option>
+                    <option value="espresso">Espresso Shot (1:2)</option>
+                    <option value="coldbrew">Cold Brew Concentrate (1:6)</option>
+                  </select>
+                </div>
+
+                <!-- Input Cups Slider -->
+                <div>
+                  <div class="flex justify-between items-center mb-2">
+                    <label class="block text-2xs uppercase tracking-widest text-cream/60 font-bold">Desired Output Cups</label>
+                    <span id="cupsValue" class="text-sm font-bold text-caramel font-mono">2 Cups (12 oz total)</span>
+                  </div>
+                  <input type="range" id="cupsSlider" min="1" max="8" value="2" oninput="calculateBrewRatio()" class="w-full h-1 bg-cream/20 rounded-lg appearance-none cursor-pointer accent-caramel">
+                </div>
+              </div>
+
+              <!-- Right Results Panel -->
+              <div class="bg-espresso/50 border border-cream/5 rounded-2xl p-6 space-y-4">
+                <span class="text-xs uppercase tracking-widest text-caramel font-bold block">Recipe Specs</span>
+                
+                <div class="flex justify-between items-center py-2 border-b border-white/5 font-mono">
+                  <span class="text-xs text-cream/60 font-sans">Coffee Beans:</span>
+                  <span id="calcCoffee" class="text-lg font-bold text-cream">24g</span>
+                </div>
+                
+                <div class="flex justify-between items-center py-2 border-b border-white/5 font-mono">
+                  <span class="text-xs text-cream/60 font-sans">Pure Water:</span>
+                  <span id="calcWater" class="text-lg font-bold text-cream">384g (ml)</span>
+                </div>
+
+                <div class="flex justify-between items-center py-2 border-b border-white/5 font-mono">
+                  <span class="text-xs text-cream/60 font-sans">Water Temp:</span>
+                  <span id="calcTemp" class="text-xs font-bold text-caramel">198°F - 202°F</span>
+                </div>
+
+                <div class="flex justify-between items-center py-2 font-mono">
+                  <span class="text-xs text-cream/60 font-sans">Grind Size:</span>
+                  <span id="calcGrind" class="text-xs font-bold text-caramel">Medium-Fine</span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-white/10 text-center">
+              <p class="text-2xs text-cream/40 italic">Calculations are automatically adjusted according to professional SCAA Golden Cup extraction rules.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscriptions Section -->
+    <section id="subscription" class="py-20 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-bold uppercase tracking-widest text-caramel block mb-2">Save 10% Every Bag</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-espresso">Join The Cannon Valley Coffee Club</h2>
+          <p class="text-espresso/70 mt-3">Never run out of exceptional caffeine again. Customize your favorite roasts, choose shipping frequency, and pause or cancel with one click.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          <!-- Subscription tier 1 -->
+          <div class="bg-white rounded-3xl p-8 border border-espresso/5 shadow-md flex flex-col justify-between card-shadow-hover">
+            <div>
+              <span class="text-xs font-bold text-caramel uppercase tracking-widest block mb-1">Curious Drinker</span>
+              <h3 class="text-xl font-bold text-espresso">Single Bag Club</h3>
+              <p class="text-sm text-espresso/70 mt-3">Get 1 premium fresh 12 oz bag of our rotating single origin roasts shipped to your door.</p>
+              
+              <div class="my-6">
+                <span class="text-3xl font-black text-espresso">$13.45</span>
+                <span class="text-xs text-espresso/60">/ Shipped monthly</span>
+              </div>
+
+              <ul class="space-y-2.5 text-xs text-espresso/85 border-t border-espresso/10 pt-4">
+                <li><i class="fa-solid fa-check text-caramel mr-2"></i> Save 10% on every single bag</li>
+                <li><i class="fa-solid fa-check text-caramel mr-2"></i> 100% Custom roast matching quiz</li>
+                <li><i class="fa-solid fa-check text-caramel mr-2"></i> Pause, modify or stop anytime</li>
+              </ul>
+            </div>
+            <div class="pt-8">
+              <button onclick="addSubscriptionToCart('Single Bag Club Monthly', 13.45)" class="w-full py-3 bg-espresso text-cream hover:bg-caramel hover:text-espresso font-bold rounded-xl transition text-xs uppercase tracking-widest">
+                Subscribe &amp; Save 10%
+              </button>
+            </div>
+          </div>
+
+          <!-- Subscription tier 2 (Best Value) -->
+          <div class="bg-espresso text-cream rounded-3xl p-8 border-2 border-caramel shadow-xl flex flex-col justify-between relative transform scale-105 z-10">
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-caramel text-espresso text-2xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest">
+              Most Popular Choice
+            </div>
+            <div>
+              <span class="text-xs font-bold text-caramel uppercase tracking-widest block mb-1">Daily Roastery Enthusiast</span>
+              <h3 class="text-xl font-bold text-cream">Double Bag Duo</h3>
+              <p class="text-sm text-cream/70 mt-3">Two curated premium roasts delivered on your schedule. Perfect for multi-coffee homes.</p>
+              
+              <div class="my-6">
+                <span class="text-3xl font-black text-cream">$24.95</span>
+                <span class="text-xs text-cream/60">/ Shipped monthly</span>
+              </div>
+
+              <ul class="space-y-2.5 text-xs text-cream/85 border-t border-white/10 pt-4">
+                <li><i class="fa-solid fa-check text-caramel mr-2"></i> Free premium shipping included</li>
+                <li><i class="fa-solid fa-check text-caramel mr-2"></i> Complete grind choice customization</li>
+                <li><i class="fa-solid fa-check text-caramel mr-2"></i> Exclusively accessible micro-lots</li>
+              </ul>
+            </div>
+            <div class="pt-8">
+              <button onclick="addSubscriptionToCart('Double Bag Duo Monthly', 24.95)" class="w-full py-3 bg-caramel text-espresso hover:bg-cream hover:text-espresso font-bold rounded-xl transition text-xs uppercase tracking-widest">
+                Subscribe &amp; Save 10%
+              </button>
+            </div>
+          </div>
+
+          <!-- Subscription tier 3 -->
+          <div class="bg-white rounded-3xl p-8 border border-espresso/5 shadow-md flex flex-col justify-between card-shadow-hover">
+            <div>
+              <span class="text-xs font-bold text-caramel uppercase tracking-widest block mb-1">Caffeine King</span>
+              <h3 class="text-xl font-bold text-espresso">Gourmet Triple Club</h3>
+              <p class="text-sm text-espresso/70 mt-3">Three premium distinct origin coffees. Ideal for true connoisseurs and heavy daily drink habits.</p>
+              
+              <div class="my-6">
+                <span class="text-3xl font-black text-espresso">$35.95</span>
+                <span class="text-xs text-espresso/60">/ Shipped monthly</span>
+              </div>
+
+              <ul class="space-y-2.5 text-xs text-espresso/85 border-t border-espresso/10 pt-4">
+                <li><i class="fa-solid fa-check text-caramel mr-2"></i> Max value savings tier</li>
+                <li><i class="fa-solid fa-check text-caramel mr-2"></i> Dynamic customizable assortment</li>
+                <li><i class="fa-solid fa-check text-caramel mr-2"></i> 100% Free VIP shipping</li>
+              </ul>
+            </div>
+            <div class="pt-8">
+              <button onclick="addSubscriptionToCart('Gourmet Triple Club Monthly', 35.95)" class="w-full py-3 bg-espresso text-cream hover:bg-caramel hover:text-espresso font-bold rounded-xl transition text-xs uppercase tracking-widest">
+                Subscribe &amp; Save 10%
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide-Out Shopping Cart Drawer overlay -->
+    <div id="cartDrawerOverlay" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-espresso/60 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-cream shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between border-l border-espresso/10">
+      
+      <!-- Drawer Header -->
+      <div class="p-6 border-b border-espresso/10 flex justify-between items-center bg-white">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-bag-shopping text-caramel text-lg"></i>
+          <h3 class="text-lg font-bold text-espresso uppercase tracking-wider font-mono">Your Roasted Bag</h3>
+        </div>
+        <button onclick="toggleCartDrawer(false)" class="p-2 text-espresso/50 hover:text-espresso rounded-full hover:bg-espresso/5 transition" aria-label="Close cart">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Free Shipping Dynamic Progress Tracker -->
+      <div class="bg-warmGrey p-4 border-b border-espresso/5 text-xs">
+        <div class="flex justify-between font-bold mb-1 text-espresso">
+          <span id="shippingProgressText">You're $45.00 away from FREE SHIPPING!</span>
+          <span id="shippingProgressPercent" class="font-mono">0%</span>
+        </div>
+        <div class="w-full bg-espresso/10 h-2 rounded-full overflow-hidden">
+          <div id="shippingProgressBar" class="bg-caramel h-full w-0 transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Drawer Products Container -->
+      <div class="flex-1 overflow-y-auto p-6 space-y-4" id="cartDrawerItems">
+        <!-- Empty Cart Message (Default) -->
+        <div class="flex flex-col items-center justify-center h-64 text-center text-espresso/40" id="emptyCartView">
+          <i class="fa-solid fa-mug-hot text-5xl mb-4 animate-bounce"></i>
+          <p class="font-bold">Your cart is currently cold!</p>
+          <p class="text-xs mt-1">Add some aromatic roasts to start brewing.</p>
+        </div>
+      </div>
+
+      <!-- Drawer Bottom Panel -->
+      <div class="p-6 border-t border-espresso/10 bg-white space-y-4">
+        <div class="space-y-2">
+          <div class="flex justify-between text-xs text-espresso/60">
+            <span>Specialty Bag Subtotal</span>
+            <span class="font-bold font-mono" id="drawerSubtotal">$0.00</span>
+          </div>
+          <div class="flex justify-between text-xs text-espresso/60">
+            <span>Fresh Ship Carrier</span>
+            <span class="font-bold font-mono" id="drawerShipping">Calculated</span>
+          </div>
+          <div class="flex justify-between text-sm text-espresso font-black pt-2 border-t border-espresso/5">
+            <span>Estimated Total</span>
+            <span class="font-bold font-mono" id="drawerGrandTotal">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Checkout Buttons -->
+        <div class="space-y-2">
+          <button onclick="openCheckoutModal()" id="checkoutSubmitBtn" class="w-full py-4 bg-caramel hover:bg-caramel/90 text-espresso font-bold rounded-xl transition duration-300 text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md">
+            <span>Proceed to Checkout</span>
+            <i class="fa-solid fa-credit-card"></i>
+          </button>
+          <button onclick="toggleCartDrawer(false)" class="w-full py-2.5 bg-transparent text-espresso hover:text-caramel font-semibold rounded-xl transition duration-200 text-xs uppercase tracking-wider">
+            Continue Shopping
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multi-Step Interactive Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 bg-espresso/80 backdrop-blur-md z-[60] hidden flex items-center justify-center p-4 overflow-y-auto">
+      <div class="bg-cream w-full max-w-2xl rounded-3xl shadow-2xl border border-espresso/10 overflow-hidden my-8 max-h-[90vh] flex flex-col justify-between">
+        <!-- Header -->
+        <div class="p-6 border-b border-espresso/10 flex justify-between items-center bg-white">
+          <h3 class="text-lg font-bold text-espresso uppercase tracking-wider font-mono">Secured Organic Checkout</h3>
+          <button onclick="closeCheckoutModal()" class="text-espresso/40 hover:text-espresso p-1 rounded-full hover:bg-espresso/5">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+
+        <!-- Tabs status navigation -->
+        <div class="bg-warmGrey border-b border-espresso/5 px-6 py-3 flex space-x-6 text-2xs font-bold uppercase tracking-widest text-espresso/40">
+          <span class="text-caramel" id="stepIndicator1"><i class="fa-solid fa-truck-ramp-box mr-1"></i> Shipping</span>
+          <span class="text-espresso/20" id="stepIndicator2"><i class="fa-solid fa-credit-card mr-1"></i> Payment</span>
+          <span class="text-espresso/20" id="stepIndicator3"><i class="fa-solid fa-circle-check mr-1"></i> Receipt</span>
+        </div>
+
+        <!-- Scrollable Checkout Body content -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-6">
+          
+          <!-- Step 1: Shipping Address Form -->
+          <div id="checkoutStep1" class="space-y-4">
+            <h4 class="font-bold text-lg text-espresso">Where should we deliver your fresh coffee bags?</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-3xs uppercase tracking-widest font-bold text-espresso/60 mb-1">First Name</label>
+                <input type="text" id="shipFirst" value="Andrew" class="w-full border border-espresso/10 rounded-lg p-2.5 text-xs focus:border-caramel focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-3xs uppercase tracking-widest font-bold text-espresso/60 mb-1">Last Name</label>
+                <input type="text" id="shipLast" value="Lad" class="w-full border border-espresso/10 rounded-lg p-2.5 text-xs focus:border-caramel focus:outline-none">
+              </div>
+            </div>
+            <div>
+              <label class="block text-3xs uppercase tracking-widest font-bold text-espresso/60 mb-1">Delivery Address</label>
+              <input type="text" id="shipAddress" placeholder="Enter street address" class="w-full border border-espresso/10 rounded-lg p-2.5 text-xs focus:border-caramel focus:outline-none">
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+              <div class="col-span-2">
+                <label class="block text-3xs uppercase tracking-widest font-bold text-espresso/60 mb-1">City</label>
+                <input type="text" id="shipCity" placeholder="City" class="w-full border border-espresso/10 rounded-lg p-2.5 text-xs focus:border-caramel focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-3xs uppercase tracking-widest font-bold text-espresso/60 mb-1">Postal Code</label>
+                <input type="text" id="shipZip" placeholder="ZIP Code" class="w-full border border-espresso/10 rounded-lg p-2.5 text-xs focus:border-caramel focus:outline-none">
+              </div>
+            </div>
+            <button onclick="advanceCheckoutStep(2)" class="w-full py-3.5 bg-espresso text-cream hover:bg-caramel hover:text-espresso font-bold rounded-xl transition text-xs uppercase tracking-widest">
+              Continue to Payment Details
+            </button>
+          </div>
+
+          <!-- Step 2: Payment Mockup -->
+          <div id="checkoutStep2" class="space-y-4 hidden">
+            <h4 class="font-bold text-lg text-espresso">Complete Secured Payment</h4>
+            <div>
+              <label class="block text-3xs uppercase tracking-widest font-bold text-espresso/60 mb-1">Email Address</label>
+              <input type="email" id="shipEmail" value="andrew@ladmedia.co" class="w-full border border-espresso/10 rounded-lg p-2.5 text-xs focus:border-caramel focus:outline-none">
+            </div>
+            <div class="border border-espresso/10 rounded-xl p-4 bg-white space-y-3">
+              <div class="flex items-center justify-between border-b border-espresso/5 pb-2">
+                <span class="text-xs font-bold text-espresso"><i class="fa-solid fa-credit-card mr-2 text-caramel"></i> Credit Card</span>
+                <div class="flex space-x-1 text-espresso/40 text-xs">
+                  <i class="fa-brands fa-cc-visa"></i>
+                  <i class="fa-brands fa-cc-mastercard"></i>
+                  <i class="fa-brands fa-cc-amex"></i>
+                </div>
+              </div>
+              <div>
+                <label class="block text-3xs uppercase tracking-widest font-bold text-espresso/40 mb-1">Card Number</label>
+                <input type="text" value="••••  ••••  ••••  4242" class="w-full border border-espresso/10 rounded-lg p-2 text-xs focus:border-caramel focus:outline-none font-mono">
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-3xs uppercase tracking-widest font-bold text-espresso/40 mb-1">Expiration</label>
+                  <input type="text" value="12 / 29" class="w-full border border-espresso/10 rounded-lg p-2 text-xs focus:border-caramel focus:outline-none font-mono">
+                </div>
+                <div>
+                  <label class="block text-3xs uppercase tracking-widest font-bold text-espresso/40 mb-1">CVV Security Code</label>
+                  <input type="text" value="***" class="w-full border border-espresso/10 rounded-lg p-2 text-xs focus:border-caramel focus:outline-none font-mono">
+                </div>
+              </div>
+            </div>
+            <button onclick="advanceCheckoutStep(3)" class="w-full py-3.5 bg-caramel text-espresso hover:bg-caramel/90 font-bold rounded-xl transition text-xs uppercase tracking-widest flex items-center justify-center space-x-2">
+              <i class="fa-solid fa-lock text-sm"></i>
+              <span>Complete Payment &amp; Roast Order</span>
+            </button>
+          </div>
+
+          <!-- Step 3: Success Receipt Frame -->
+          <div id="checkoutStep3" class="space-y-6 text-center py-8 hidden relative">
+            <div class="w-20 h-20 rounded-full bg-emerald-500/15 flex items-center justify-center text-emerald-500 mx-auto text-4xl animate-bounce">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-2xl text-espresso">Order Roast Confirmed!</h4>
+              <p class="text-xs text-espresso/60 mt-1">Thank you for your business. We've emailed details to <strong class="text-espresso">andrew@ladmedia.co</strong></p>
+            </div>
+            <div class="border border-dashed border-espresso/20 rounded-xl p-4 bg-white max-w-sm mx-auto text-left space-y-2 text-xs">
+              <div class="flex justify-between">
+                <span class="text-espresso/60">Order Number:</span>
+                <span class="font-bold font-mono text-espresso">#CV-901248</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-espresso/60">Preparation Schedule:</span>
+                <span class="font-bold text-caramel">Roasted &amp; Shipped Next Monday</span>
+              </div>
+              <div class="flex justify-between pt-2 border-t border-espresso/15">
+                <span class="font-bold text-espresso">Amount Paid:</span>
+                <span id="finalReceiptTotal" class="font-bold text-espresso font-mono">$0.00</span>
+              </div>
+            </div>
+            <button onclick="closeCheckoutModal()" class="px-8 py-3 bg-espresso hover:bg-caramel text-cream font-bold rounded-xl hover:text-espresso transition text-xs uppercase tracking-widest">
+              Continue Exploring Products
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Premium Dark Footer (Designed and Powered by LAD MEDIA) -->
+    <footer class="bg-[#0b0604] text-[#ece2da] pt-16 pb-8 border-t border-espresso/40 relative overflow-hidden">
+      <!-- Ambient light effect -->
+      <div class="absolute right-0 bottom-0 w-96 h-96 bg-caramel/5 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Main Footer Links Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-cream/10">
+          
+          <!-- Column 1: Brand & Logo -->
+          <div class="md:col-span-4 space-y-5">
+            <div class="flex items-center space-x-2">
+              <div class="w-10 h-10 rounded-full bg-caramel flex items-center justify-center text-espresso shadow-md">
+                <i class="fa-solid fa-mug-hot text-lg"></i>
+              </div>
+              <div>
+                <span class="block text-lg font-bold tracking-tight text-white uppercase font-mono">Cannon Valley</span>
+                <span class="block text-2xs uppercase tracking-widest text-caramel font-semibold -mt-1">Coffee Roasters</span>
+              </div>
+            </div>
+            <p class="text-xs text-[#b5a69a] leading-relaxed max-w-sm">
+              Premium handcrafted organic coffee roasters. From micro-lot single origins to signature bold blends, roasted every Monday &amp; Wednesday for peak flavor.
+            </p>
+            <div class="flex space-x-3 pt-2">
+              <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-caramel hover:text-espresso flex items-center justify-center text-xs transition duration-300"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-caramel hover:text-espresso flex items-center justify-center text-xs transition duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-caramel hover:text-espresso flex items-center justify-center text-xs transition duration-300"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-caramel hover:text-espresso flex items-center justify-center text-xs transition duration-300"><i class="fa-brands fa-pinterest-p"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Shop Navigation -->
+          <div class="md:col-span-2 space-y-4">
+            <h4 class="text-xs font-black uppercase tracking-widest text-white">Our Services</h4>
+            <ul class="space-y-2.5 text-xs text-[#b5a69a]">
+              <li><a href="#shop-anchor" class="hover:text-caramel transition">Signature Blends</a></li>
+              <li><a href="#shop-anchor" class="hover:text-caramel transition">Single Origin Lots</a></li>
+              <li><a href="#shop-anchor" class="hover:text-caramel transition">Swiss Decaf Option</a></li>
+              <li><a href="#subscription" class="hover:text-caramel transition">Coffee Club Plans</a></li>
+              <li><a href="#shop-anchor" class="hover:text-caramel transition">Fresh Roasted Gift Cards</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Coffee Resources -->
+          <div class="md:col-span-3 space-y-4">
+            <h4 class="text-xs font-black uppercase tracking-widest text-white">Roastery Science</h4>
+            <ul class="space-y-2.5 text-xs text-[#b5a69a]">
+              <li><a href="#matchmaker" class="hover:text-caramel transition">Take Coffee Taste Quiz</a></li>
+              <li><a href="#calculator" class="hover:text-caramel transition">Golden Cup Calculator</a></li>
+              <li><a href="#calculator" class="hover:text-caramel transition">Drip Brewing Standards</a></li>
+              <li><a href="#subscription" class="hover:text-caramel transition">Micro-Lot Traceability</a></li>
+              <li><a href="#" class="hover:text-caramel transition">Wholesale Supply Program</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Roastery Location & Contact -->
+          <div class="md:col-span-3 space-y-4">
+            <h4 class="text-xs font-black uppercase tracking-widest text-white">Roastery Contact</h4>
+            <ul class="space-y-3 text-xs text-[#b5a69a]">
+              <li class="flex items-start space-x-2">
+                <span class="text-caramel mt-0.5"><i class="fa-solid fa-envelope"></i></span>
+                <span>roastmaster@cannonvalley.com</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-caramel mt-0.5"><i class="fa-solid fa-phone"></i></span>
+                <span>(973) 475-8314</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-caramel mt-0.5"><i class="fa-solid fa-location-dot"></i></span>
+                <span>New Jersey &amp; NYC Roastery Hub</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Sub Footer Bottom Bar -->
+        <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-[#7e6e62] gap-4">
+          <p>© 2026 Cannon Valley Coffee Co. All rights reserved.</p>
+          
+          <!-- LAD MEDIA Premium Attribution Badge -->
+          <div class="flex items-center space-x-3">
+            <span class="text-[#7e6e62]">Partner Platform:</span>
+            <a href="https://ladmedia.co" target="_blank" class="group flex items-center space-x-2 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 hover:border-caramel/50 transition duration-300">
+              <!-- LAD MEDIA Iconic Styled Vector Icon -->
+              <div class="w-5 h-5 rounded bg-white flex items-center justify-center overflow-hidden">
+                <span class="text-[9px] font-black text-black font-sans tracking-tighter">LAD</span>
+              </div>
+              <span class="text-2xs font-bold text-[#ece2da] group-hover:text-caramel tracking-wider uppercase font-mono transition">
+                Designed and Powered by LAD MEDIA
+              </span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- Core Interactive Client JavaScript Logic -->
+    <script>
+      // Live Global Application State Store
+      const AppState = {
+        products: {
+          p1: { id: 'p1', title: 'Cannon Valley House', size: '12oz', price: 14.95, grind: 'Whole Bean', basePrice: 14.95 },
+          p2: { id: 'p2', title: 'Ethiopian Yirgacheffe', size: '12oz', price: 16.95, grind: 'Whole Bean', basePrice: 16.95 },
+          p3: { id: 'p3', title: 'Midnight Velvet', size: '12oz', price: 14.95, grind: 'Whole Bean', basePrice: 14.95 },
+          p4: { id: 'p4', title: 'Decaf Sun Up', size: '12oz', price: 15.95, grind: 'Whole Bean', basePrice: 15.95 }
+        },
+        cart: [],
+        quizAnswers: { step1: '', step2: '', step3: '' }
+      };
+
+      // Navigation Toggles
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        const icon = document.getElementById('menuIcon');
+        if (menu.classList.contains('hidden')) {
+          menu.classList.remove('hidden');
+          icon.className = "fa-solid fa-xmark text-xl";
+        } else {
+          menu.classList.add('hidden');
+          icon.className = "fa-solid fa-bars text-xl";
+        }
+      }
+
+      // Catalog Live Filter Search
+      function liveSearch() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const cards = document.querySelectorAll('#productGrid > div');
+        cards.forEach(card => {
+          const title = card.querySelector('h3').innerText.toLowerCase();
+          const desc = card.querySelector('p').innerText.toLowerCase();
+          if (title.includes(query) || desc.includes(query)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      }
+
+      // Catalog Classification Filters
+      function filterCatalog(category) {
+        const buttons = document.querySelectorAll('#catalogFilters button');
+        buttons.forEach(btn => {
+          btn.className = "px-5 py-2.5 rounded-full border border-espresso/15 text-espresso/80 hover:bg-espresso/5 transition";
+        });
+        
+        const activeBtn = document.getElementById('filter-' + category);
+        if (activeBtn) {
+          activeBtn.className = "px-5 py-2.5 rounded-full bg-espresso text-cream transition";
+        }
+
+        const cards = document.querySelectorAll('#productGrid > div');
+        cards.forEach(card => {
+          if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      }
+
+      // Product Configurator Pricing Rules
+      function updateProductConfig(productId, type, value, newPrice) {
+        const product = AppState.products[productId];
+        if (type === 'size') {
+          product.size = value;
+          product.price = newPrice;
+          
+          // Reset button highlighting styles
+          const sizes = ['12oz', '2lb', '5lb'];
+          sizes.forEach(sz => {
+            const btn = document.getElementById(`${productId}-size-${sz}`);
+            if (btn) {
+              btn.className = "flex-1 py-1.5 border border-espresso/15 text-espresso/70 text-xs font-semibold rounded-lg hover:border-caramel transition";
+            }
+          });
+          
+          // Highlight active choice
+          const activeBtn = document.getElementById(`${productId}-size-${value}`);
+          if (activeBtn) {
+            activeBtn.className = "flex-1 py-1.5 border-2 border-caramel bg-caramel/10 text-espresso text-xs font-bold rounded-lg transition";
+          }
+          
+          // Update visual price tag on storefront
+          const priceLabel = document.getElementById(`${productId}-base-price`);
+          if (priceLabel) {
+            priceLabel.innerText = `$${newPrice.toFixed(2)}`;
+          }
+        }
+      }
+
+      // Dynamic Interactive Cart Storage & Calculation Engine
+      function triggerAddToCart(productId) {
+        const config = AppState.products[productId];
+        const grindSelector = document.getElementById(`${productId}-grind-select`);
+        const chosenGrind = grindSelector ? grindSelector.value : 'Whole Bean';
+        
+        // Push configuration to cart state
+        AppState.cart.push({
+          id: config.id + '-' + config.size + '-' + chosenGrind.replace(' ', ''),
+          title: config.title,
+          size: config.size,
+          grind: chosenGrind,
+          price: config.price,
+          quantity: 1
+        });
+
+        // Trigger notifications and open drawer
+        showToastNotification(`Added ${config.title}!`, `Bag size: ${config.size} (${chosenGrind}) added successfully.`);
+        renderCartItems();
+        toggleCartDrawer(true);
+      }
+
+      function addSubscriptionToCart(clubName, price) {
+        AppState.cart.push({
+          id: clubName.toLowerCase().replace(/ /g, '-'),
+          title: clubName,
+          size: 'Recurring Box',
+          grind: 'Curated Mix',
+          price: price,
+          quantity: 1
+        });
+        showToastNotification(`Subscription Added!`, `Joined the ${clubName} successfully.`);
+        renderCartItems();
+        toggleCartDrawer(true);
+      }
+
+      function addRecommendedToCart() {
+        // Find recommend product
+        const matchTitle = document.getElementById('recommendedCardTitle').innerText;
+        AppState.cart.push({
+          id: 'quiz-match-bag',
+          title: matchTitle,
+          size: '12 oz Specialty',
+          grind: 'Fresh Ground',
+          price: 14.95,
+          quantity: 1
+        });
+        showToastNotification('Match Added!', 'Your custom flavor match is inside your bag.');
+        renderCartItems();
+        toggleCartDrawer(true);
+      }
+
+      function removeCartItem(itemId) {
+        AppState.cart = AppState.cart.filter(item => item.id !== itemId);
+        renderCartItems();
+      }
+
+      function updateCartQty(itemId, change) {
+        const item = AppState.cart.find(item => item.id === itemId);
+        if (item) {
+          item.quantity += change;
+          if (item.quantity <= 0) {
+            removeCartItem(itemId);
+          } else {
+            renderCartItems();
+          }
+        }
+      }
+
+      function renderCartItems() {
+        const container = document.getElementById('cartDrawerItems');
+        const countBadge = document.getElementById('cartCountBadge');
+        const emptyView = document.getElementById('emptyCartView');
+        
+        container.innerHTML = '';
+        
+        if (AppState.cart.length === 0) {
+          container.appendChild(emptyView);
+          countBadge.innerText = '0';
+          countBadge.classList.add('scale-0');
+          updatePrices(0);
+          return;
+        }
+
+        emptyView.remove();
+        countBadge.innerText = AppState.cart.reduce((acc, curr) => acc + curr.quantity, 0);
+        countBadge.classList.remove('scale-0');
+
+        let subtotal = 0;
+
+        AppState.cart.forEach(item => {
+          subtotal += (item.price * item.quantity);
+          
+          const itemDiv = document.createElement('div');
+          itemDiv.className = "bg-white p-4 rounded-xl border border-espresso/5 flex justify-between items-center space-x-4";
+          itemDiv.innerHTML = `
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-lg bg-espresso/5 flex items-center justify-center text-caramel">
+                <i class="fa-solid fa-mug-hot"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-espresso">${item.title}</h4>
+                <p class="text-[10px] text-espresso/60">${item.size} • ${item.grind}</p>
+                <p class="text-xs font-mono font-bold text-caramel mt-1">$${item.price.toFixed(2)}</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-2">
+              <div class="flex items-center space-x-1 bg-warmGrey rounded-lg border border-espresso/5 px-2 py-1">
+                <button onclick="updateCartQty('${item.id}', -1)" class="text-xs text-espresso/50 hover:text-espresso font-bold px-1">-</button>
+                <span class="text-xs font-mono font-bold px-1">${item.quantity}</span>
+                <button onclick="updateCartQty('${item.id}', 1)" class="text-xs text-espresso/50 hover:text-espresso font-bold px-1">+</button>
+              </div>
+              <button onclick="removeCartItem('${item.id}')" class="text-espresso/30 hover:text-red-600 transition p-1">
+                <i class="fa-solid fa-trash-can text-xs"></i>
+              </button>
+            </div>
+          `;
+          container.appendChild(itemDiv);
+        });
+
+        updatePrices(subtotal);
+      }
+
+      function updatePrices(subtotal) {
+        const shippingThreshold = 45.00;
+        let shippingCost = 4.99;
+        let progressPercent = Math.min((subtotal / shippingThreshold) * 100, 100);
+
+        if (subtotal >= shippingThreshold || subtotal === 0) {
+          shippingCost = 0.00;
+        }
+
+        const grandTotal = subtotal + shippingCost;
+
+        // Update progress bar
+        const progressBar = document.getElementById('shippingProgressBar');
+        const progressText = document.getElementById('shippingProgressText');
+        const progressPercentLabel = document.getElementById('shippingProgressPercent');
+
+        progressBar.style.width = `${progressPercent}%`;
+        progressPercentLabel.innerText = `${Math.round(progressPercent)}%`;
+
+        if (subtotal === 0) {
+          progressText.innerText = `You are $45.00 away from FREE SHIPPING!`;
+        } else if (subtotal < shippingThreshold) {
+          progressText.innerText = `You are $${(shippingThreshold - subtotal).toFixed(2)} away from FREE SHIPPING!`;
+        } else {
+          progressText.innerText = `🎉 You have unlocked free standard shipping!`;
+          progressBar.classList.remove('bg-caramel');
+          progressBar.classList.add('bg-forest');
+        }
+
+        // Write totals
+        document.getElementById('drawerSubtotal').innerText = `$${subtotal.toFixed(2)}`;
+        document.getElementById('drawerShipping').innerText = shippingCost === 0 ? 'FREE' : `$${shippingCost.toFixed(2)}`;
+        document.getElementById('drawerGrandTotal').innerText = `$${grandTotal.toFixed(2)}`;
+      }
+
+      function toggleCartDrawer(open) {
+        const overlay = document.getElementById('cartDrawerOverlay');
+        const drawer = document.getElementById('cartDrawer');
+        if (open) {
+          overlay.classList.remove('hidden');
+          setTimeout(() => overlay.classList.add('opacity-100'), 50);
+          drawer.classList.remove('translate-x-full');
+        } else {
+          overlay.classList.remove('opacity-100');
+          setTimeout(() => overlay.classList.add('hidden'), 300);
+          drawer.classList.add('translate-x-full');
+        }
+      }
+
+      // Quiz Process Controllers
+      function selectQuizAnswer(step, answer) {
+        if (step === 1) {
+          AppState.quizAnswers.step1 = answer;
+          document.getElementById('quizStep1').classList.add('hidden');
+          document.getElementById('quizStep2').classList.remove('hidden');
+        } else if (step === 2) {
+          AppState.quizAnswers.step2 = answer;
+          document.getElementById('quizStep2').classList.add('hidden');
+          document.getElementById('quizStep3').classList.remove('hidden');
+        } else if (step === 3) {
+          AppState.quizAnswers.step3 = answer;
+          document.getElementById('quizStep3').classList.add('hidden');
+          document.getElementById('quizStepLoading').classList.remove('hidden');
+          
+          // Mimic a loading analysis computation
+          setTimeout(() => {
+            document.getElementById('quizStepLoading').classList.add('hidden');
+            processQuizRecommendation();
+          }, 1500);
+        }
+      }
+
+      function processQuizRecommendation() {
+        const titleLabel = document.getElementById('recommendedTitle');
+        const cardTitle = document.getElementById('recommendedCardTitle');
+        const descLabel = document.getElementById('recommendedDesc');
+        const priceLabel = document.getElementById('recommendedPrice');
+        
+        let matchName = "Cannon Valley House";
+        let matchDesc = "Our classic balanced signature roast, showcasing deep brown sugars, pecans and mild cocoa acidity.";
+        let price = "$14.95";
+
+        if (AppState.quizAnswers.step2 === 'fruit') {
+          matchName = "Ethiopian Yirgacheffe";
+          matchDesc = "Delicately roasted wild light single-origin lot, yielding brilliant high notes of floral jasmine and fresh lemon zest juices.";
+          price = "$16.95";
+        } else if (AppState.quizAnswers.step2 === 'robust' || AppState.quizAnswers.step3 === 'milk') {
+          matchName = "Midnight Velvet Roast";
+          matchDesc = "Deep, robust, heavy-bodied dark profile blend featuring notes of smoky baking chocolates, blackstrap molasses, and woodiness.";
+          price = "$14.95";
+        } else if (AppState.quizAnswers.step3 === 'decaf') {
+          matchName = "Decaf Sun Up";
+          matchDesc = "All the bold sweetness of Swiss Water processed medium beans, showing brown sugar notes and creamy vanilla finish.";
+          price = "$15.95";
+        }
+
+        titleLabel.innerText = matchName;
+        cardTitle.innerText = matchName;
+        descLabel.innerText = matchDesc;
+        priceLabel.innerText = price;
+
+        document.getElementById('quizResult').classList.remove('hidden');
+      }
+
+      function resetQuiz() {
+        AppState.quizAnswers = { step1: '', step2: '', step3: '' };
+        document.getElementById('quizResult').classList.add('hidden');
+        document.getElementById('quizStep1').classList.remove('hidden');
+      }
+
+      // Brewing Science Calculator formula matching SCAA rules
+      function calculateBrewRatio() {
+        const method = document.getElementById('brewMethod').value;
+        const cups = parseInt(document.getElementById('cupsSlider').value);
+        
+        // standard cup volume maps to 6 oz (177 ml)
+        const totalWaterMl = cups * 177;
+        
+        let ratioMultiplier = 16; // Default Pour-Over
+        let grindSize = "Medium-Fine";
+        let tempRange = "198°F - 202°F";
+
+        switch (method) {
+          case 'french':
+            ratioMultiplier = 15;
+            grindSize = "Coarse / Flaky";
+            tempRange = "200°F - 204°F";
+            break;
+          case 'espresso':
+            ratioMultiplier = 2; // 1:2 extraction
+            grindSize = "Fine / Powdered";
+            tempRange = "195°F - 198°F";
+            break;
+          case 'coldbrew':
+            ratioMultiplier = 6;
+            grindSize = "Very Coarse";
+            tempRange = "Ambient Cold Water";
+            break;
+        }
+
+        const coffeeGrams = Math.round(totalWaterMl / ratioMultiplier);
+
+        // Update view
+        document.getElementById('cupsValue').innerText = `${cups} Cup${cups > 1 ? 's' : ''} (${Math.round(cups * 6)} oz total)`;
+        document.getElementById('calcCoffee').innerText = `${coffeeGrams}g`;
+        document.getElementById('calcWater').innerText = `${totalWaterMl}g (ml)`;
+        document.getElementById('calcTemp').innerText = tempRange;
+        document.getElementById('calcGrind').innerText = grindSize;
+      }
+
+      // Secured Checkout system controller actions
+      function openCheckoutModal() {
+        if (AppState.cart.length === 0) {
+          showToastNotification('Cart is Empty!', 'Please add some fresh roasts to checkout.');
+          return;
+        }
+        toggleCartDrawer(false);
+        
+        // Compile receipt totals
+        const grandText = document.getElementById('drawerGrandTotal').innerText;
+        document.getElementById('finalReceiptTotal').innerText = grandText;
+
+        document.getElementById('checkoutStep1').classList.remove('hidden');
+        document.getElementById('checkoutStep2').classList.add('hidden');
+        document.getElementById('checkoutStep3').classList.add('hidden');
+
+        // Reset step tabs coloring
+        document.getElementById('stepIndicator1').className = "text-caramel";
+        document.getElementById('stepIndicator2').className = "text-espresso/20";
+        document.getElementById('stepIndicator3').className = "text-espresso/20";
+
+        document.getElementById('checkoutModal').classList.remove('hidden');
+      }
+
+      function closeCheckoutModal() {
+        document.getElementById('checkoutModal').classList.add('hidden');
+      }
+
+      function advanceCheckoutStep(step) {
+        if (step === 2) {
+          const address = document.getElementById('shipAddress').value;
+          if (!address) {
+            showToastNotification('Input Error!', 'Please input a complete delivery address.');
+            return;
+          }
+          document.getElementById('checkoutStep1').classList.add('hidden');
+          document.getElementById('checkoutStep2').classList.remove('hidden');
+          document.getElementById('stepIndicator2').className = "text-caramel";
+        } else if (step === 3) {
+          // Trigger order compilation completion animations
+          document.getElementById('checkoutStep2').classList.add('hidden');
+          document.getElementById('checkoutStep3').classList.remove('hidden');
+          document.getElementById('stepIndicator3').className = "text-caramel";
+          
+          // Clear cart
+          AppState.cart = [];
+          renderCartItems();
+          triggerSuccessConfetti();
+        }
+      }
+
+      // Custom Feedback Toast Generator
+      function showToastNotification(title, message) {
+        const toast = document.getElementById('toastNotification');
+        document.getElementById('toastTitle').innerText = title;
+        document.getElementById('toastMessage').innerText = message;
+        
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-20', 'opacity-0');
+        }, 3500);
+      }
+
+      // Festive Confetti Generator for checkout completed
+      function triggerSuccessConfetti() {
+        for (let i = 0; i < 40; i++) {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti-piece';
+          confetti.style.left = Math.random() * 100 + 'vw';
+          confetti.style.background = ['#c68b59', '#1e3a2f', '#4a2c1b', '#d4af37'][Math.floor(Math.random() * 4)];
+          confetti.style.animationDelay = Math.random() * 2 + 's';
+          confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+          document.body.appendChild(confetti);
+          
+          // Cleanup
+          setTimeout(() => confetti.remove(), 5000);
+        }
+      }
+
+      // Run on Load
+      window.onload = function() {
+        calculateBrewRatio();
+      };
+    </script>
+  </body>
 </html>
